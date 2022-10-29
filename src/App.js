@@ -1,24 +1,60 @@
-import logo from './logo.svg';
-import './App.css';
+import { Box, createTheme, ThemeProvider } from "@mui/material";
+import GlobalStyles from "@mui/material/GlobalStyles";
+import { LightSwitch } from "./components/LightSwitch";
+
+const theme = createTheme({
+  typography: {
+    fontFamily: [
+      "-apple-system",
+      "BlinkMacSystemFont",
+      '"Segoe UI"',
+      "Roboto",
+      '"Helvetica Neue"',
+      "Arial",
+      "sans-serif",
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(","),
+  },
+  colors: {
+    switch: {
+      on: "#8CBBE9",
+      off: "#ECECEC",
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles
+          styles={(theme) => ({
+            body: {
+              width: "100%",
+              fontFamily: theme.typography.fontFamily,
+              display: "flex",
+              flexDirection: "row",
+            },
+          })}
+        />
+        <h1 align="center">IoT Hydroponics Project</h1>
+
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            flexWrap: "wrap",
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <LightSwitch room={"ROOM 1"} />
+          <LightSwitch room={"ROOM 2"} />
+          <LightSwitch room={"ROOM 3"} />
+          <LightSwitch room={"ROOM 4"} />
+        </Box>
+      </ThemeProvider>
+    </>
   );
 }
 
