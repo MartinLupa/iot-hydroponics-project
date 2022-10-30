@@ -34,11 +34,6 @@ export const LoginForm = () => {
     align: "left",
   };
 
-  const formLinkStyle = {
-    width: "100%",
-    align: "left",
-  };
-
   return (
     <Grid
       align="center"
@@ -51,6 +46,7 @@ export const LoginForm = () => {
         <LockOpenOutlinedIcon style={iconStyle} />
 
         <TextField
+          required
           style={formElementStyle}
           variant="standard"
           id="email"
@@ -58,6 +54,7 @@ export const LoginForm = () => {
           placeholder="Email"
         />
         <TextField
+          required
           style={formElementStyle}
           variant="standard"
           type="password"
@@ -65,7 +62,7 @@ export const LoginForm = () => {
           label="Password"
           placeholder="Password"
         />
-        <Button style={formElementStyle} variant="contained">
+        <Button type="submit" style={formElementStyle} variant="contained">
           Login
         </Button>
 
