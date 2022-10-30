@@ -2,6 +2,8 @@ import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
 import { Card, Switch } from "@mui/material";
 import { styled } from "@mui/system";
 import React, { useState } from "react";
+const LIGHTPINS_BASE_URL = process.env.REACT_APP_LIGHTPINS_BASE_URL;
+const axios = require("axios");
 
 const StyledCard = styled(Card, {
   name: "StyledCard",
@@ -16,11 +18,30 @@ const StyledCard = styled(Card, {
   onMouseOver: { boxshadow: 1 },
 });
 
-export const LightSwitch = ({ room }) => {
-  const [isChecked, setChecked] = useState(true);
+export const LightSwitch = ({ room, pinId }) => {
+  const [isChecked, setChecked] = useState(false);
+  const [pinSignal, setPinSignal] = useState("1");
 
   const handleSwitchChange = () => {
     setChecked(!isChecked);
+    if (pinSignal === "0") {
+      setPinSignal("1");
+    } else if (pinSignal === "1") {
+      setPinSignal("0");
+    }
+
+    fetch(LIGHTPINS_BASE_URL + `/${pinId}`, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify({ pinSignal: pinSignal }),
+    })
+      .then((response) => console.log(response))
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
