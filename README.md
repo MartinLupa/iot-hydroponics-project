@@ -20,3 +20,5 @@ Author: Martín I. Lupa, Oct 2022
 ---
 
 ## Stage 2 - Bidirectional communication using MQTT protocol
+
+![alt text](documentation/stage2.png)
