@@ -9,6 +9,8 @@ Author: Martín I. Lupa, Oct 2022
 ### Frontend:
 
 - React
+- Material UI
+- Styled Components
 
 ### Backend:
 

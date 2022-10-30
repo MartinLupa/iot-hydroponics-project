@@ -45,7 +45,8 @@ app.get("/health", (req, res) => {
 app.post("/lights/:id", (req, res) => {
   const pinId = req.params.id;
   const { pinSignal } = req.body;
-  port.write(pinSignal);
+  port.write(`${pinSignal} ${pinId}`);
+  console.log(`${pinSignal} ${pinId}`);
 });
 
 app.listen(PORT, () => {

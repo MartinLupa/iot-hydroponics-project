@@ -3,7 +3,6 @@ import { Card, Switch } from "@mui/material";
 import { styled } from "@mui/system";
 import React, { useState } from "react";
 const LIGHTPINS_BASE_URL = process.env.REACT_APP_LIGHTPINS_BASE_URL;
-const axios = require("axios");
 
 const StyledCard = styled(Card, {
   name: "StyledCard",

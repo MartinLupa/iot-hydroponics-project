@@ -49,10 +49,10 @@ function App() {
             flexWrap: "wrap",
           }}
         >
-          <LightSwitch pinId={"lp1"} room={"ROOM 1"} />
-          <LightSwitch pinId={"lp2"} room={"ROOM 2"} />
-          <LightSwitch pinId={"lp3"} room={"ROOM 3"} />
-          <LightSwitch pinId={"lp4"} room={"ROOM 4"} />
+          <LightSwitch pinId={"1"} room={"ROOM 1"} />
+          <LightSwitch pinId={"2"} room={"ROOM 2"} />
+          <LightSwitch pinId={"3"} room={"ROOM 3"} />
+          <LightSwitch pinId={"4"} room={"ROOM 4"} />
         </Box>
       </ThemeProvider>
     </>
