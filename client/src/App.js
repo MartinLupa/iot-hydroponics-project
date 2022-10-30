@@ -1,8 +1,8 @@
-import { Box, createTheme, ThemeProvider } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material";
 import GlobalStyles from "@mui/material/GlobalStyles";
-import { LightSwitch } from "./components/LightSwitch";
+import { PublicRouter } from "./routers/PublicRouter";
 
-const theme = createTheme({
+const customTheme = createTheme({
   typography: {
     fontFamily: [
       "-apple-system",
@@ -22,17 +22,27 @@ const theme = createTheme({
       on: "#8CBBE9",
       off: "#ECECEC",
     },
+    palette: {
+      darkGreen: "#062315",
+      cyprus: "#06373A",
+      eden: "#1F5F5B",
+      salem: "#159947",
+      oceanGreen: "#49B265",
+    },
   },
 });
 
 function App() {
   return (
     <>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={customTheme}>
         <GlobalStyles
           styles={(theme) => ({
             body: {
+              margin: 0,
+              padding: 0,
               width: "100%",
+              height: "100vh",
               fontFamily: theme.typography.fontFamily,
               display: "flex",
               flexDirection: "row",
@@ -40,20 +50,7 @@ function App() {
             },
           })}
         />
-        <h1 align="center">IoT Hydroponics Project</h1>
-
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            flexWrap: "wrap",
-          }}
-        >
-          <LightSwitch pinId={"1"} room={"ROOM 1"} />
-          <LightSwitch pinId={"2"} room={"ROOM 2"} />
-          <LightSwitch pinId={"3"} room={"ROOM 3"} />
-          <LightSwitch pinId={"4"} room={"ROOM 4"} />
-        </Box>
+        <PublicRouter theme={customTheme} />
       </ThemeProvider>
     </>
   );
